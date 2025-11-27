@@ -14,7 +14,7 @@ pipeline {
                 sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
                 sh 'docker tag $IMAGE_NAME:$IMAGE_TAG $IMAGE_NAME:latest'
                 
-                withCredentials([string(credentialsId: 'visitor-counter ', variable: 'GITHUB_TOKEN')]) {
+                withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_TOKEN')]) {
                     sh 'echo $GITHUB_TOKEN | docker login ghcr.io -u $GIT_USER_NAME --password-stdin'
                     sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
                     sh 'docker push $IMAGE_NAME:latest'
