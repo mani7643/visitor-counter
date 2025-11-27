@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Visitors Counter</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 100px; }
+    #counter { font-size: 70px; color: #e74c3c; }
+  </style>
+</head>
+<body>
+  <h1>People watching right now:</h1>
+  <div id="counter">0</div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on('visitors', (count) => {
+      document.getElementById('counter').innerText = count;
+    });
+  </script>
+</body>
+</html>
