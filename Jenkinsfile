@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "ghcr.io/${env.GIT_USER_NAME}/realtime-visitor-counter"
+        IMAGE_NAME = "ghcr.io/mani7643/visitor-counter"
         IMAGE_TAG = "${env.BUILD_NUMBER}"
         RENDER_DEPLOY_HOOK = "https://api.render.com/deploy/srv-d4k4fdvdiees73b9if2g?key=9RGpkx1Q2_o"  // Get from Render
     }
