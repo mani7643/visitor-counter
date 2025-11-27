@@ -1,0 +1,13 @@
+# render.yaml
+services:
+  - type: web
+    name: realtime-visitor-counter
+    env: docker
+    region: oregon
+    plan: free
+    autoDeploy: true
+    dockerCommand: ""
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 3000
